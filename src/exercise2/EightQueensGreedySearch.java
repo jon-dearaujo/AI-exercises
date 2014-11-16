@@ -67,7 +67,7 @@ public class EightQueensGreedySearch {
 				int[] newPositions = Arrays.copyOf(state.positions, state.positions.length);
 				newPositions[index] = i;
 				int heuristic = calculateHeuristic(newPositions);
-				State newState = new State(newPositions, heuristic, state.cost, state);
+				State newState = new State(newPositions, heuristic, state.cost + 1, state);
 				states.offer(newState);
 			}
 		}
