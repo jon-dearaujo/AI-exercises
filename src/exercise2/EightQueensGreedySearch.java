@@ -105,7 +105,7 @@ public class EightQueensGreedySearch {
 		int[] positionsAtRight = Arrays.copyOfRange(positions, index + 1, positions.length);
 		int linePositionValue = positions[index];
 		for(int i = 0; i < positionsAtRight.length; i++){
-			if(linePositionValue < positions.length && positionsAtRight[i] == --linePositionValue)
+			if(linePositionValue > 0 && positionsAtRight[i] == --linePositionValue)
 				return true;
 		}
 		return false;
