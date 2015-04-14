@@ -29,12 +29,14 @@ public class SudokuSolutionBreadthFirst {
 		SudokuState current = null;
 		while(!availableStates.isEmpty() && !found ){
 			current = availableStates.poll();
-			if(current.equals(objective)){
-				found = true;
-				break;
-			}else{
-				expandNextStates(current);
-				visited.add(current);
+			if(!visited.contains(current)){
+				if(current.equals(objective)){
+					found = true;
+					break;
+				}else{
+					expandNextStates(current);
+					visited.add(current);
+				}
 			}
 		}
 		if(found && current != null){
@@ -66,27 +68,19 @@ public class SudokuSolutionBreadthFirst {
 		}
 		if(currentI - 1 >= 0){
 			SudokuState newState = newAvailableState(currentState, currentI,currentJ, currentI - 1, currentJ);
-			if(!visited.contains(newState)){
-				availableStates.offer(newState);
-			}
+			availableStates.offer(newState);
 		}
 		if(currentJ + 1 < board.length){
 			SudokuState newState = newAvailableState(currentState, currentI, currentJ, currentI, currentJ + 1);
-			if(!visited.contains(newState)){
-				availableStates.offer(newState);
-			}
+			availableStates.offer(newState);
 		}
 		if(currentI + 1 < board.length){
 			SudokuState newState = newAvailableState(currentState, currentI, currentJ, currentI + 1, currentJ);
-			if(!visited.contains(newState)){
-				availableStates.offer(newState);
-			}
+			availableStates.offer(newState);
 		}
 		if(currentJ - 1 >= 0){
 			SudokuState newState = newAvailableState(currentState, currentI, currentJ, currentI, currentJ - 1);
-			if(!visited.contains(newState)){
-				availableStates.offer(newState);
-			}
+			availableStates.offer(newState);
 		}
 	}
 

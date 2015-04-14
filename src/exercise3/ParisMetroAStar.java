@@ -85,11 +85,11 @@ public class ParisMetroAStar {
 
 	private void sortStates() {
 		states = states.stream().sorted((state1,state2)->{
-			int heuristicValueLine1 = state1.pointCost + state1.estimatedRemainderCost;
-			int heuristicValueLine2 = state2.pointCost + state2.estimatedRemainderCost;
-			if(heuristicValueLine1 < heuristicValueLine2)
+			int heuristicValueStation1 = state1.pointCost + state1.estimatedRemainderCost;
+			int heuristicValueStation2 = state2.pointCost + state2.estimatedRemainderCost;
+			if(heuristicValueStation1 < heuristicValueStation2)
 				return -1;
-			else if(heuristicValueLine1 == heuristicValueLine2)
+			else if(heuristicValueStation1 == heuristicValueStation2)
 				return 0;
 			return 1;
 		}).collect(Collectors.toCollection(()->new LinkedList<State>()));

@@ -77,6 +77,13 @@ public class StationsManager {
 				connected.add(i+1);
 			}
 		}
+		for(int i = 0; i < directConnections.length; i++){
+			if(i != nEstation - 1){
+				if(!directConnections[i][nEstation - 1].equals("-")){
+					connected.add(i + 1);
+				}
+			}
+		}
 		return connected;
 	}
 	

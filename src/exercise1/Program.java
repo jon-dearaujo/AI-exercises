@@ -16,6 +16,7 @@ public class Program {
 		for (SudokuState sudokuState : steps) {
 			System.out.println(sudokuState.toString());
 		}
+		System.out.println("steps: " + steps.size());
 		System.out.println(new Date());
 	}
 }
