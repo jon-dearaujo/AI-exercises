@@ -44,7 +44,7 @@ public class SudokuSolutionBreadthFirst {
 			getPreviousStates(steps, current);
 			return steps;
 		}
-		return null;
+		return new ArrayList<>();
 	}
 	
 	private void getPreviousStates(List<SudokuState> states, SudokuState current){
